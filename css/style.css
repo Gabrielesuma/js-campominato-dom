@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: black;
+}
+
+section#grid{
+    width: 550px;
+    height: 550px;
+    margin: 0 auto;
+}
+
+section#grid > article.square{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 2px solid white;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section#grid,
+section#grid .square{
+    border: 2px solid white;
+    color: white;
+}
+
+section#grid > article.square.nine{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+section#grid > article.square.seven{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
+.column{
+    flex-direction: column;
+}
+
+.clicked{
+    background-color: aqua;
+}
+
+.clicked-red{
+    background-color: red;
+}
