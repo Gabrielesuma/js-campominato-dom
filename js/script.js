@@ -14,18 +14,21 @@ function newGame(numberOfSquares){
     }
     console.log(list);
 
+    let score = 0;
+
     for(i = 0; i < numberOfSquares; i++){
         const newSquare = document.createElement('article');
         newSquare.classList.add('square');
 
         newSquare.addEventListener('click', function(){
             let num = parseInt(newSquare.innerHTML);
-            
+
             if(list.includes(num)){
                 newSquare.classList.add('clicked-red');
-                console.log('Mi dispiace ma hai perso');
+                console.log(`Mi dispiace ma hai perso, il tuo punteggio è di ${score}`);
             } else {
                 newSquare.classList.add('clicked');
+                score++;
             }
         });
 
