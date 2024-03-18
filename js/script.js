@@ -18,19 +18,20 @@ function newGame(numberOfSquares){
         const newSquare = document.createElement('article');
         newSquare.classList.add('square');
 
+        newSquare.addEventListener('click', function(){
+            let num = parseInt(newSquare.innerHTML);
+            
+            if(list.includes(num)){
+                newSquare.classList.add('clicked-red');
+                console.log('Mi dispiace ma hai perso');
+            } else {
+                newSquare.classList.add('clicked');
+            }
+        });
 
         if(numberOfSquares === 81){
             newSquare.classList.add('nine');
-            newSquare.addEventListener('click', function(){
-                for(i = 0; i < numberOfSquares; i++){
-                    if(list.includes(i + 1)){
-                        newSquare.classList.add('clicked-red');
-                        console.log('Mi dispiace ma hai perso');
-                    } else {
-                        newSquare.classList.add('clicked');
-                    }
-                }
-            });
+            
         } else if(numberOfSquares === 49){
             newSquare.classList.add('seven');
         }
@@ -39,24 +40,10 @@ function newGame(numberOfSquares){
             newSquare.classList.add('clicked');
         });
     
-        const spanContent = document.createElement('span');
-        spanContent.append(i + 1);
-    
-        newSquare.appendChild(spanContent);
+        newSquare.innerHTML = i + 1;
         grid.appendChild(newSquare);
     }
 };
-
-
-
-/*if(uniqueNum === i + 1){
-        newSquare.addEventListener('click', function(){
-            newSquare.classList.add('clicked-red');
-            console.log('Mi dispiace ma hai perso');
-        });
-    }*/
-
-
 
 function generateUniqueRandomNumber(min, max, blacklist){
     let isFound = false;
